@@ -1,28 +1,49 @@
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
->>> bg = BaseGeometry()
->>> bg.area()
-Traceback (most recent call last):
-...
-Exception: area() is not implemented
->>> bg.integer_validator("my_int", 12)
->>> bg.integer_validator("width", 89)
->>> bg.integer_validator("name", "John")
-Traceback (most recent call last):
-...
-TypeError: name must be an integer
->>> bg.integer_validator("age", 0)
-Traceback (most recent call last):
-...
-ValueError: age must be greater than 0
->>> bg.integer_validator("distance", -4)
-Traceback (most recent call last):
-...
-ValueError: distance must be greater than 0
->>> bg.integer_validator("bool_test", True)
-Traceback (most recent call last):
-...
-TypeError: bool_test must be an integer
->>> bg.integer_validator("float_test", 13.5)
-Traceback (most recent call last):
-...
-TypeError: float_test must be an integer
+=====================================
+Test file for BaseGeometry class
+=====================================
+
+Import the class:
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Create an instance:
+    >>> bg = BaseGeometry()
+
+Test area method (must raise Exception):
+    >>> bg.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
+
+Test integer_validator with valid integers:
+    >>> bg.integer_validator("my_int", 12)
+    >>> bg.integer_validator("width", 89)
+
+Test integer_validator with string (TypeError):
+    >>> bg.integer_validator("name", "John")
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be an integer
+
+Test integer_validator with zero (ValueError):
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: age must be greater than 0
+
+Test integer_validator with negative number (ValueError):
+    >>> bg.integer_validator("distance", -4)
+    Traceback (most recent call last):
+    ...
+    ValueError: distance must be greater than 0
+
+Test integer_validator with boolean (TypeError):
+    >>> bg.integer_validator("bool_test", True)
+    Traceback (most recent call last):
+    ...
+    TypeError: bool_test must be an integer
+
+Test integer_validator with float (TypeError):
+    >>> bg.integer_validator("float_test", 13.5)
+    Traceback (most recent call last):
+    ...
+    TypeError: float_test must be an integer
